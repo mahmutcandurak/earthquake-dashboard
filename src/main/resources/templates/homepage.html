@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Earthquake</title>
+</head>
+<body>
+<style type="text/css">
+    label {
+        display: inline-block;
+        width: 200px;
+        margin: 5px;
+        text-align: left;
+    }
+    input[type=text], input[type=password], select {
+        display: inline-block;
+        width: 200px;
+    }
+    input[type=radio] {
+        margin-left: 45px;
+    }
+    input[type=checkbox] {
+        margin-right: 190px;
+    }
+    button {
+        padding: 5px;
+        margin: 10px;
+    }
+
+
+    [type="date"] {
+        background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+    }
+    [type="date"]::-webkit-inner-spin-button {
+        display: none;
+    }
+    [type="date"]::-webkit-calendar-picker-indicator {
+        opacity: 0;
+    }
+
+    body {
+        padding: 4em;
+        background: #e5e5e5;
+        font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    }
+    label {
+        display: block;
+    }
+    input {
+        border: 1px solid #c4c4c4;
+        border-radius: 5px;
+        background-color: #fff;
+        padding: 3px 5px;
+        box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+        width: 190px;
+    }
+</style>
+
+
+<div align="center">
+    <h1>WELCOME TO EARTHQUAKE SEARCH PAGE</h1>
+
+
+
+        <form action="#" th:action="@{/search}" method="post" th:object="${filter}">
+
+
+
+
+            <div>
+                <label for="starttime">Start Time</label>
+                <input type="date" th:field="*{starttime}" id="starttime"/>
+            </div>
+            <div>
+                <label for="endtime">End Time</label>
+                <input type="date" th:field="*{endtime}" id="endtime"/>
+            </div>
+            <div>
+                <label for="country">Country</label>
+                <input type="text" th:field="*{country}" id="country"/>
+            </div>
+            <div>
+                <label for="minmagnitude">Min Magnitude</label>
+                <input type="number" step="0.1" min="0" th:field="*{minmagnitude}"
+                                                class="form-control mb-4 col-4" id="minmagnitude"/>
+
+            </div>
+
+            <div>
+                <button type="submit" >Search</button>
+            </div>
+
+        </form>
+
+
+</div>
+</body>
+</html>
+
+
